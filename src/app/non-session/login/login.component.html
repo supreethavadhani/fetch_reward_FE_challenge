@@ -1,0 +1,18 @@
+<div class="login-box">
+  <mat-card class="login-card">
+    <h1 class="login-header">Adopt a doggo!</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="login-form" appearance="outline">
+        <mat-label>Your Name</mat-label>
+        <mat-error>Please enter your name</mat-error>
+        <input matInput placeholder="Ex. Adam, Eve" formControlName="name">
+      </mat-form-field>
+      <mat-form-field class="login-form" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Ex. adma@gmail.com,eve@gmail.com" formControlName="email">
+        <mat-error>Invalid Email</mat-error>
+      </mat-form-field>
+    </form>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Login</button>
+  </mat-card>
+</div>

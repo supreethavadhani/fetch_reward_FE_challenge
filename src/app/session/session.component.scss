@@ -1,0 +1,55 @@
+@import '../../styles.scss' ;
+app-main-card{
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    margin: 1rem
+}
+
+mat-toolbar {
+    display: flex;
+    background-color: white;
+    color: $primary;
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+    position: relative;
+    width: 100%;
+    z-index: 300;
+    border: 1px solid #19a6b4;
+    height: 9.5vh;
+}
+
+.logo {
+    width: 3rem;
+    margin-left: 5.2rem;
+}
+
+.title {
+    margin: 0.5rem;
+    font-size: 1.7rem;
+    font-family: Roboto-light;
+}
+
+.main-content {
+    display: flex;
+    flex-wrap:wrap;
+    padding-left:6.2rem;
+}
+
+.filter {
+    margin-left: 1rem;
+    margin-top:2rem;
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+        -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+      }
+}
+
+.filters {
+    max-height: 33vh;
+    overflow-y: scroll;
+}

@@ -1,0 +1,23 @@
+<mat-toolbar>
+  <img class="logo" src="https://nttsars.com/wp-content/uploads/2021/03/dogheart-500x500-1.png">
+  <span class="title">Paw Patrol</span>
+</mat-toolbar>
+
+<div class="row col-md-12 main-content">
+  <div class="filter col-md-2">
+    <h2>Filter By</h2>
+    <mat-form-field appearance="outline" style="margin: 0.2rem; width:16vw;">
+      <mat-label> Search </mat-label>
+      <input [formControl]="searchControl" matInput (input)="inputChar($event)">
+      <mat-icon matSuffix fontIcon="search"></mat-icon>
+    </mat-form-field>
+    <div class="filters">
+      <div *ngFor="let breed of breeds">
+        <mat-checkbox (change)="checkboxChanged($event,breed)">{{breed}}</mat-checkbox>
+      </div>
+    </div>
+  </div>
+  <div class="filter col-md-6">
+    <router-outlet></router-outlet>
+  </div>
+</div>

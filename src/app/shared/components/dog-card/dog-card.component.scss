@@ -1,0 +1,19 @@
+@import '../../../../styles.scss';
+img {
+    height: 25vh;
+    width: 15vw;
+}
+
+mat-card {
+    height: 25vh;
+    width: 50vw;
+    margin: 1rem;
+}
+
+.card-title {
+    color: black;
+    margin-top: 1rem;
+    display: flex;
+    font-family: roboto-regular;
+    font-weight: 700;
+}
