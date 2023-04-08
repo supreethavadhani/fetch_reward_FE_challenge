@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoginComponent } from './login.component';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HttpService } from 'src/app/shared/services/http.service';
+import { HttpService } from 'src/app/shared/services/httpService/http.service';
 import { of } from 'rxjs';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

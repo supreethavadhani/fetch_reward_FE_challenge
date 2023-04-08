@@ -15,6 +15,8 @@ import { SearchComponent } from './session/search/search.component';
 import { TableComponentComponent } from './shared/components/table-component/table-component.component';
 import { DogCardComponent } from './shared/components/dog-card/dog-card.component';
 import { DogCardListComponent } from './shared/components/dog-card-list/dog-card-list.component';
+import { FilterComponent } from './shared/components/filter/filter.component';
+import { CardDisplayFieldsComponent } from './shared/components/card-display-fields/card-display-fields.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { DogCardListComponent } from './shared/components/dog-card-list/dog-card
     TableComponentComponent,
     DogCardComponent,
     DogCardListComponent,
+    FilterComponent,
+    CardDisplayFieldsComponent,
   ],
   imports: [
     BrowserModule,

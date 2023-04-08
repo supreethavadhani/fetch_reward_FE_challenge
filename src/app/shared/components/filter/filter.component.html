@@ -1,0 +1,30 @@
+<div class="filter-card" style="background-color: white;">
+<h2 style="text-align: center;">Filters</h2>
+
+<form [formGroup]="filterControls" >
+
+  <mat-form-field appearance="outline" class="col-md-11">
+    <mat-label> Search and Select Breed</mat-label>
+    <input formControlName="searchControl" matInput (input)="getSelectedBreeds()">
+  </mat-form-field>
+
+  <div class="filters">
+    <div *ngFor="let breed of filteredBreeds">
+      <mat-checkbox style="margin:-0.5rem" (change)="checkboxChanged($event,breed)">{{breed}}</mat-checkbox>
+    </div>
+  </div>
+
+  <mat-form-field appearance="outline" class="col-md-11">
+    <mat-label> Minimum Age</mat-label>
+    <input formControlName="minAgeControl" matInput (input)="getSelectedBreeds()">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="col-md-11">
+    <mat-label> Max Age</mat-label>
+    <input formControlName="maxAgeControl" matInput (input)="getSelectedBreeds()">
+  </mat-form-field>
+
+  <mat-error *ngIf="ageError"> There is an age error</mat-error>
+
+</form>
+</div>

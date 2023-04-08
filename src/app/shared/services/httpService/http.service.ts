@@ -34,7 +34,7 @@ export class HttpService {
     return this.http.post(basePath + endpoint, data, this.headerOptions);
   }
 
-  get(endpoint?: string,data?:any): Observable < any > {
+  get(endpoint?: string,data?:any): Observable <any> {
     return this.http.get(basePath+endpoint,{
       headers:this.headers,
       responseType: 'text' as 'json',
