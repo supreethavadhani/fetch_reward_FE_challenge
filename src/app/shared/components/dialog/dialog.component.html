@@ -1,12 +1,22 @@
-<mat-card style="padding:1rem" class="fireworks-example">
-    <h1 mat-dialog-title style="text-align: center;color:#2f0d38; font-family: Roboto-bold">We Found the Bestest Doggo For You</h1>
-<div mat-dialog-content>
-    <div style="padding:1rem">
-        <h2>My Name is {{content?.name}} and I'm {{content?.age}} year/s old. I live in {{content?.zip_code}}</h2>
-        <img src={{content?.img}}>
+<mat-card style="padding: 1rem" class="fireworks-example">
+  <h1
+    mat-dialog-title
+    style="text-align: center; color: #2f0d38; font-family: Roboto-bold"
+  >
+    We Found the Bestest Doggo For You
+  </h1>
+  <div mat-dialog-content>
+    <div style="padding: 1rem">
+      <h2>
+        My Name is {{ content?.name }} and I'm {{ content?.age }} year/s old. I
+        live in {{ content?.zip_code }}
+      </h2>
+      <img src="{{ content?.img }}" />
     </div>
-</div>
-<div mat-dialog-actions style="text-align: center;">
-<button mat-raised-button color="primary" (click)="close()">Yay! Thanks</button>
-</div>
+  </div>
+  <div mat-dialog-actions style="text-align: center">
+    <button mat-raised-button color="primary" (click)="close()">
+      Yay! Thanks
+    </button>
+  </div>
 </mat-card>

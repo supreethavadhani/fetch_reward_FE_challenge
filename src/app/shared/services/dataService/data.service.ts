@@ -12,27 +12,27 @@ export class DataService {
   public pickedDogs = new BehaviorSubject<Array<Dog>>([]);
   public filteredResultsData = new BehaviorSubject({});
   public paginatorValues = new BehaviorSubject({});
-  public isAuthorized:boolean = false;
+  public isAuthorized: boolean = false;
 
   constructor() { }
 
   // Function to set filtered dogs data
-  public setFilterdDogs(filterdDogs:any){
+  public setFilterdDogs(filterdDogs: any) {
     this.filterDogs.next(filterdDogs)
   }
 
   // Function to set picked dog data
-  public setPickedDog(pickedDogs:Dog[]){
+  public setPickedDog(pickedDogs: Dog[]) {
     this.pickedDogs.next(pickedDogs)
   }
 
   // Function to set filtered results data
-  public setFilteredResultsData(filteredResults:any){
+  public setFilteredResultsData(filteredResults: any) {
     this.filteredResultsData.next(filteredResults.total);
   }
 
   // Function to set paginator values
-  public setPaginatorValues(pe:any){
+  public setPaginatorValues(pe: any) {
     // Calculate updated values for paginator
     let updatedPaginatorValues = {
       size: pe.pageSize,
@@ -41,10 +41,10 @@ export class DataService {
     this.paginatorValues.next(updatedPaginatorValues);
   }
 
-  public setAutorized(authStatus:boolean){
+  public setAutorized(authStatus: boolean) {
     this.isAuthorized = authStatus
   }
-  public getAuthStatus(){
+  public getAuthStatus() {
     return this.isAuthorized
   }
 }

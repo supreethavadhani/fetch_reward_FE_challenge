@@ -18,7 +18,7 @@ fdescribe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpClientTestingModule, ReactiveFormsModule,AppModule],
+      imports: [RouterTestingModule, HttpClientTestingModule, ReactiveFormsModule, AppModule],
       declarations: [LoginComponent],
       providers: [FormBuilder, DataService, HttpService, SnackbarService]
     })

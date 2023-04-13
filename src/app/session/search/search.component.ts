@@ -17,13 +17,13 @@ export class SearchComponent implements OnInit {
   totalData: any; // Total number of dogs to display
 
   // Inject the required services into the component
-  constructor(private http: HttpService, private dataService: DataService) {}
+  constructor(private http: HttpService, private dataService: DataService) { }
 
   // Runs when the component is initialized
   ngOnInit(): void {
     // Subscribe to the filterDogs event in the DataService to get filtered dog data
     this.dataService.filterDogs.subscribe(
-      (data:Dog[]) => {
+      (data: Dog[]) => {
         this.dogList = data;
         this.dogList.map(x => x.favorite = false);
       }

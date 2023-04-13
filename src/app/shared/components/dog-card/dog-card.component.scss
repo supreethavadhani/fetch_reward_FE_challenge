@@ -1,4 +1,4 @@
-@import '../../../../styles.scss';
+@import "../../../../styles.scss";
 
 img {
   width: 100%;
@@ -13,9 +13,8 @@ img {
 }
 
 mat-card {
-  margin: 1rem
+  margin: 1rem;
 }
-
 
 .card:hover {
   transform: translateY(-5px);

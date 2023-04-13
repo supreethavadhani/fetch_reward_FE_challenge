@@ -12,18 +12,18 @@ import { SnackbarService } from '../shared/services/snackbarService/snackbar.ser
   templateUrl: './session.component.html',
   styleUrls: ['./session.component.scss']
 })
-export class SessionComponent{
-  constructor(public httpService:HttpService, public router:Router, private snackbar:SnackbarService){}
-  logout(){
-    this.httpService.post('/auth/logout').subscribe(data=>{
+export class SessionComponent {
+  constructor(public httpService: HttpService, public router: Router, private snackbar: SnackbarService) { }
+  logout() {
+    this.httpService.post('/auth/logout').subscribe(data => {
       console.log("Logged out")
       sessionStorage.clear()
       this.router.navigate(["/"])
       this.snackbar.showSuccess("Logged out Successfully")
     },
-    err=>{
-      console.log(err)
-    })
+      err => {
+        console.log(err)
+      })
 
   }
 }

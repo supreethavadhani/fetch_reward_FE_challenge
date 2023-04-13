@@ -1,18 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 
 @font-face {
-    font-family: "Plantin Head MT Std Bold Cn";
-    src: url('./assets/fonts/Plantin\ Head\ MT\ Std\ Bold\ Cn.otf') format("truetype");
+  font-family: "Plantin Head MT Std Bold Cn";
+  src: url("./assets/fonts/Plantin\ Head\ MT\ Std\ Bold\ Cn.otf")
+    format("truetype");
 }
 
 @font-face {
-    font-family: "Plantin Head MT Std Medium Cn";
-    src: url('./assets/fonts/Plantin\ Head\ MT\ Std\ Medium\ Cn.otf') format("truetype");
+  font-family: "Plantin Head MT Std Medium Cn";
+  src: url("./assets/fonts/Plantin\ Head\ MT\ Std\ Medium\ Cn.otf")
+    format("truetype");
 }
 
-html, body { height: 100%; background-color: #ffffff; }
-body { margin: 0; font-family: Plantin Head MT Std Medium Cn }
-h1, h2, h3 {margin: 0; font-family: Plantin Head MT Std Medium Cn;} 
-$primary:#2f0d38;
-
-
+html,
+body {
+  height: 100%;
+  background-color: #ffffff;
+}
+body {
+  margin: 0;
+  font-family: Plantin Head MT Std Medium Cn;
+}
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: Plantin Head MT Std Medium Cn;
+}
+$primary: #2f0d38;

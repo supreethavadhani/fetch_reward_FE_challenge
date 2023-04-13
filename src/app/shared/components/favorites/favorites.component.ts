@@ -25,7 +25,7 @@ export class FavoritesComponent {
   public filteredData: Dog[] = [];
   public matchedDog: Dog | undefined;
 
-  constructor(private dataService: DataService, private http: HttpService, private dialog:Dialog) {
+  constructor(private dataService: DataService, private http: HttpService, private dialog: Dialog) {
     this.pickedLength = 0
   }
 
@@ -42,7 +42,7 @@ export class FavoritesComponent {
   match() {
     let pickedDogIds = this.pickedDogs.map(x => x.id)
     this.http.post("/dogs/match", pickedDogIds).subscribe(
-     async data => {
+      async data => {
         await (this.matchedDog = this.pickedDogs.filter(x => x.id = data.match)[0])
         this.openDialog()
       }
@@ -51,12 +51,12 @@ export class FavoritesComponent {
 
   openDialog(): void {
     let dialogRef = this.dialog.open(DialogComponent);
-    if(dialogRef.componentInstance)
+    if (dialogRef.componentInstance)
       dialogRef.componentInstance.content = this.matchedDog;
     dialogRef.componentInstance?.closeCLicked.subscribe(
-      data=>{
+      data => {
         dialogRef.close()
       }
     )
-}
+  }
 }

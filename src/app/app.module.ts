@@ -18,7 +18,7 @@ import { FavCardsComponent } from './shared/components/fav-cards/fav-cards.compo
 import { FavoritesComponent } from './shared/components/favorites/favorites.component';
 import { DialogComponent } from './shared/components/dialog/dialog.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import {Dog} from './shared/interfaces';
+import { Dog } from './shared/interfaces';
 import { AuthService } from './shared/auth/auth.service';
 import { DataService } from './shared/services/dataService/data.service';
 import { SnackbarService } from './shared/services/snackbarService/snackbar.service';
@@ -54,7 +54,7 @@ import { SnackbarService } from './shared/services/snackbarService/snackbar.serv
       useValue: {}
     },
     DialogComponent
- ],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

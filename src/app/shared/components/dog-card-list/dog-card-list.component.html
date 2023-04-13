@@ -1,5 +1,9 @@
 <div class="row">
   <div class="col-md-4 dog-list" *ngFor="let dog of DogList">
-    <app-dog-card class="col-md-12" [dog]="dog" (favoriteClicked)="favoriteClicked(dog)"></app-dog-card>
+    <app-dog-card
+      class="col-md-12"
+      [dog]="dog"
+      (favoriteClicked)="favoriteClicked(dog)"
+    ></app-dog-card>
   </div>
 </div>

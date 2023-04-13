@@ -1,25 +1,25 @@
 <!-- This heading displays the number of dogs currently being shown -->
-<h1>Showing 25 of {{totalData}} Dogs.</h1>
+<h1>Showing 25 of {{ totalData }} Dogs.</h1>
 
 <!-- This is the paginator component, which allows users to navigate through pages of dogs -->
 <mat-paginator
-  [length]=totalData  
-  (page)="handlePageEvent($event)"  
-  [pageSize]="25" 
-  [pageSizeOptions]="[5, 10, 25, 100]" 
+  [length]="totalData"
+  (page)="handlePageEvent($event)"
+  [pageSize]="25"
+  [pageSizeOptions]="[5, 10, 25, 100]"
   aria-label="Select page"
 ></mat-paginator>
 
 <!-- This is the dog card list component, which displays a list of dog cards -->
 <app-dog-card-list
-  class="row col-md-12" 
+  class="row col-md-12"
   [DogList]="dogList"
 ></app-dog-card-list>
 
 <mat-paginator
-  [length]=totalData  
-  (page)="handlePageEvent($event)"  
-  [pageSize]="25" 
-  [pageSizeOptions]="[5, 10, 25, 100]" 
+  [length]="totalData"
+  (page)="handlePageEvent($event)"
+  [pageSize]="25"
+  [pageSizeOptions]="[5, 10, 25, 100]"
   aria-label="Select page"
 ></mat-paginator>

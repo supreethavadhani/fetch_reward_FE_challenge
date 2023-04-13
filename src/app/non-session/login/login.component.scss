@@ -1,26 +1,26 @@
-.login-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.login-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .login-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25rem;
-    height: 25rem;
-    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-    background-color: rgba($color:#ffffff, $alpha: 1);
-    border-radius: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25rem;
+  height: 25rem;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  background-color: rgba($color: #ffffff, $alpha: 1);
+  border-radius: 5%;
 }
 
 .login-form {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .login-header {
-    color: #3498db
+  color: #3498db;
 }

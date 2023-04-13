@@ -25,7 +25,7 @@ fdescribe('SessionComponent', () => {
         { provide: Router, useValue: routerSpy },
         { provide: SnackbarService, useValue: snackbarSpy },
       ],
-      imports:[AppModule]
+      imports: [AppModule]
     }).compileComponents();
   });
 

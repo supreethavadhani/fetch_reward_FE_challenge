@@ -8,12 +8,12 @@ import { DataService } from '../../services/dataService/data.service';
   styleUrls: ['./dog-card.component.scss']
 })
 export class DogCardComponent {
-  @Input() dog:Dog | undefined;
+  @Input() dog: Dog | undefined;
   @Output() favoriteClicked = new EventEmitter()
 
-  constructor(){}
+  constructor() { }
 
-  favoriteToggle(){
+  favoriteToggle() {
     this.favoriteClicked.next(true)
   }
 }

@@ -7,6 +7,6 @@ import { Dog } from '../../interfaces';
   styleUrls: ['./fav-cards.component.scss']
 })
 export class FavCardsComponent {
-  @Input() dog:Dog|undefined;
+  @Input() dog: Dog | undefined;
 
 }

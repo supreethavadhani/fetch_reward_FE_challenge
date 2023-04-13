@@ -18,11 +18,11 @@ fdescribe('SearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchComponent ],
-      providers: [ DataService, HttpService ],
-      imports: [ AppModule]
+      declarations: [SearchComponent],
+      providers: [DataService, HttpService],
+      imports: [AppModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

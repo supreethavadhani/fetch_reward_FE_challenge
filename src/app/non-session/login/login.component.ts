@@ -13,9 +13,9 @@ import { SnackbarService } from 'src/app/shared/services/snackbarService/snackba
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private http:HttpService, public router: Router, private dataService:DataService, private snackbar:SnackbarService) {}
+  constructor(private fb: FormBuilder, private http: HttpService, public router: Router, private dataService: DataService, private snackbar: SnackbarService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   // create the login form with FormBuilder
   public loginForm = this.fb.group(loginModel);
@@ -30,13 +30,13 @@ export class LoginComponent implements OnInit {
     }
     else {
       // submit the login data to the server and navigate to the session page on success
-      this.http.post("/auth/login",this.loginForm.getRawValue()).subscribe(
-        data=>{
+      this.http.post("/auth/login", this.loginForm.getRawValue()).subscribe(
+        data => {
           this.router.navigate(['session']);
           this.dataService.setAutorized(true);
           this.snackbar.showSuccess("Welcome User! Your best friend awaits!")
         },
-        err=>{
+        err => {
           console.log(err);
         }
       );

@@ -1,42 +1,42 @@
-@import '../../styles.scss' ;
-app-main-card{
-    display: flex;
-    justify-content: center;
-    height: 80vh;
-    margin: 1rem
+@import "../../styles.scss";
+app-main-card {
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+  margin: 1rem;
 }
 
 mat-toolbar {
-    display: flex;
-    background-color: white;
-    color: $primary;
-    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.12);
-    position: relative;
-    width: 100%;
-    z-index: 300;
-    height: 9.5vh;
+  display: flex;
+  background-color: white;
+  color: $primary;
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.12);
+  position: relative;
+  width: 100%;
+  z-index: 300;
+  height: 9.5vh;
 }
 
 .logo {
-    width: 3rem;
-    margin-left: 5.2rem;
+  width: 3rem;
+  margin-left: 5.2rem;
 }
 
-@import '../../styles.scss';
+@import "../../styles.scss";
 
 .title {
-    margin: 0.5rem;
-    font-size: 3rem;
-    color:#fba81a;
-    font-weight:700;
-    font-family: Plantin Head MT Std Bold Cn;
+  margin: 0.5rem;
+  font-size: 3rem;
+  color: #fba81a;
+  font-weight: 700;
+  font-family: Plantin Head MT Std Bold Cn;
 }
 
 .main-content {
-    display: flex;
-    flex-wrap:wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-mat-toolbar{
-    background-color: #2f0d38;
+mat-toolbar {
+  background-color: #2f0d38;
 }

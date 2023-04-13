@@ -7,9 +7,9 @@ import { DataService } from '../services/dataService/data.service';
 })
 export class AuthService {
 
-  constructor(private router:Router, private dataService:DataService) { }
+  constructor(private router: Router, private dataService: DataService) { }
 
-  canActivate(): boolean{
+  canActivate(): boolean {
     if (this.dataService.getAuthStatus()) {
       return true;
     } else {

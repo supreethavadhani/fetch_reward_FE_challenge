@@ -26,7 +26,7 @@ import {
 export class DialogComponent {
   @Input() public content: Dog | undefined | null;
   @Output() public closeCLicked = new EventEmitter()
-  constructor(public dialogRef: MatDialogRef < DialogComponent > ) {}
+  constructor(public dialogRef: MatDialogRef<DialogComponent>) { }
 
   close(): void {
     this.closeCLicked.next(true);

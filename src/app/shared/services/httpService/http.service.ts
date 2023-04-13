@@ -23,17 +23,17 @@ export class HttpService {
     responseType: 'text' as 'json',  // Set response type as JSON
     withCredentials: true  // Set withCredentials to true to include cookies
   }
-  
 
-  constructor(private http: HttpClient, private dataService:DataService) {}
+
+  constructor(private http: HttpClient, private dataService: DataService) { }
 
   // Send a POST request to the given endpoint with the provided data
-  post(endpoint: string, data ? : any): Observable < any > {
+  post(endpoint: string, data?: any): Observable<any> {
     return this.http.post(basePath + endpoint, data, this.headerOptions);
   }
 
   // Send a GET request to the given endpoint with the provided data
-  get(endpoint: string, data?: any): Observable < any > {
+  get(endpoint: string, data?: any): Observable<any> {
     return this.http.get(basePath + endpoint, {
       headers: this.headers,
       responseType: 'text' as 'json',  // Set response type as JSON
@@ -52,7 +52,7 @@ export class HttpService {
     } else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong.
-      if(error.status === 401){
+      if (error.status === 401) {
         console.error(`Backend returned code ${error.status}, body was: ${error.error}`);
         this.dataService.setAutorized(false)
       }
