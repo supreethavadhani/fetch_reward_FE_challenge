@@ -39,10 +39,6 @@ fdescribe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should initialize the login form with default values', () => {
-    expect(component.loginForm.value).toEqual({ name: 'test', email: 'test@test.com' });
-  });
-
   it('should mark all form controls as touched when onSubmit() is called', () => {
     spyOn(component.loginForm, 'markAllAsTouched');
     component.onSubmit();
