@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Dog } from '../../interfaces';
 import { DataService } from '../../services/dataService/data.service';
 
@@ -9,9 +9,11 @@ import { DataService } from '../../services/dataService/data.service';
 })
 export class DogCardComponent {
   @Input() dog:Dog | undefined;
+  @Output() favoriteClicked = new EventEmitter()
 
-  constructor( private dataService:DataService){}
-  public addDog(){
-    this.dataService.setPickedDog(this.dog)
+  constructor(){}
+
+  favoriteToggle(){
+    this.favoriteClicked.next(true)
   }
 }

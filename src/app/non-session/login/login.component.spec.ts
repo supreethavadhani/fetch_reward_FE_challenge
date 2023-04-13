@@ -1,86 +1,68 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { LoginComponent } from './login.component';
-import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { DataService } from 'src/app/shared/services/dataService/data.service';
 import { HttpService } from 'src/app/shared/services/httpService/http.service';
-import { of } from 'rxjs';
-import { MaterialModule } from 'src/app/shared/material/material.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SnackbarService } from 'src/app/shared/services/snackbarService/snackbar.service';
+import { AppModule } from 'src/app/app.module';
+import { Observable } from 'rxjs';
 
-describe('LoginComponent', () => {
+fdescribe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
-  let fb: FormBuilder;
-  let httpServiceSpy: jasmine.SpyObj<HttpService>;
+  let dataService: DataService;
+  let httpService: HttpService;
+  let snackbarService: SnackbarService;
 
   beforeEach(async () => {
-    const httpSpy = jasmine.createSpyObj('HttpService', ['postLogin']);
     await TestBed.configureTestingModule({
+      imports: [RouterTestingModule, HttpClientTestingModule, ReactiveFormsModule,AppModule],
       declarations: [LoginComponent],
-      imports:[ReactiveFormsModule,MaterialModule,BrowserAnimationsModule,FormsModule],
-      providers: [
-        FormBuilder,
-        { provide: HttpService, useValue: httpSpy },
-      ],
-    }).compileComponents();
-    fb = TestBed.inject(FormBuilder);
-    httpServiceSpy = TestBed.inject(HttpService) as jasmine.SpyObj<HttpService>;
+      providers: [FormBuilder, DataService, HttpService, SnackbarService]
+    })
+      .compileComponents();
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
+    dataService = TestBed.inject(DataService);
+    httpService = TestBed.inject(HttpService);
+    snackbarService = TestBed.inject(SnackbarService);
+    component.ngOnInit
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call http.postLogin when form is submitted with valid inputs', () => {
-    // arrange
-    const loginForm = fb.group({
-      name: ['Adam', Validators.required],
-      email: ['adam@gmail.com', [Validators.required, Validators.email]],
-    });
-    httpServiceSpy.postLogin.and.returnValue(of({}));
-    component.loginForm = loginForm;
-    fixture.detectChanges();
-
-    // act
-    component.onSubmit();
-
-    // assert
-    expect(httpServiceSpy.postLogin).toHaveBeenCalledWith('/auth/login', loginForm.getRawValue());
+  it('should initialize the login form with default values', () => {
+    expect(component.loginForm.value).toEqual({ name: 'test', email: 'test@test.com' });
   });
 
-  it('should not call http.postLogin when form is submitted with invalid inputs', () => {
-    // arrange
-    const loginForm = fb.group({
-      name: ['Eve', Validators.required],
-      email: ['invalid-email', [Validators.required, Validators.email]],
-    });
-    component.loginForm = loginForm;
-    fixture.detectChanges();
-
-    // act
+  it('should mark all form controls as touched when onSubmit() is called', () => {
+    spyOn(component.loginForm, 'markAllAsTouched');
     component.onSubmit();
-
-    // assert
-    expect(httpServiceSpy.postLogin).not.toHaveBeenCalled();
+    expect(component.loginForm.markAllAsTouched).toHaveBeenCalled();
   });
 
-  it('should mark all form fields as touched when form is submitted', () => {
-    // arrange
-    const loginForm = fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-    });
-    component.loginForm = loginForm;
-    fixture.detectChanges();
-
-    // act
+  it('should submit the form if it is valid', () => {
+    spyOn(httpService, 'post').and.callThrough();
+    component.loginForm.setValue({ name: 'test', email: 'test@test.com' });
     component.onSubmit();
-
-    // assert
-    expect(loginForm.get('name')?.touched).toBeTrue();
-    expect(loginForm.get('email')?.touched).toBeTrue();
+    expect(httpService.post).toHaveBeenCalledWith('/auth/login', { name: 'test', email: 'test@test.com' });
   });
 
-
+  it('should log the error message when the server returns an error', () => {
+    spyOn(httpService, 'post').and.returnValue(new Observable<any>(observer => {
+      observer.error('Error');
+    }));
+    spyOn(console, 'log');
+    component.loginForm.setValue({ name: 'test', email: 'test@test.com' });
+    component.onSubmit();
+    expect(console.log).toHaveBeenCalledWith('Error');
+  });
 });

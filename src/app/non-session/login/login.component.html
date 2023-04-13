@@ -1,18 +1,26 @@
-<div class="login-box">
+<!-- Login form container -->
+<div class="login-box" style="background:url(https://wallpaperaccess.com/full/2565009.jpg);  background-repeat: no-repeat;
+background-size: cover;">
+  <!-- Login card -->
   <mat-card class="login-card">
+    <!-- Login form header -->
     <h1 class="login-header">Adopt a doggo!</h1>
+    <!-- Login form with form group and ngSubmit directive -->
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- Form field for user's name -->
       <mat-form-field class="login-form" appearance="outline">
         <mat-label>Your Name</mat-label>
         <mat-error>Please enter your name</mat-error>
         <input matInput placeholder="Ex. Adam, Eve" formControlName="name">
       </mat-form-field>
+      <!-- Form field for user's email -->
       <mat-form-field class="login-form" appearance="outline">
         <mat-label>Email</mat-label>
         <input matInput placeholder="Ex. adma@gmail.com,eve@gmail.com" formControlName="email">
         <mat-error>Invalid Email</mat-error>
       </mat-form-field>
     </form>
+    <!-- Login button -->
     <button mat-raised-button color="primary" (click)="onSubmit()">Login</button>
   </mat-card>
 </div>

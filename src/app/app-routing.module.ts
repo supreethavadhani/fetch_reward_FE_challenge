@@ -14,11 +14,12 @@ import {
 import {
   SearchComponent
 } from './session/search/search.component';
-
+import { AuthService } from "./shared/auth/auth.service"
 
 const routes: Routes = [{
     'path': 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [AuthService] 
   },
   {
     'path': '',
@@ -29,8 +30,10 @@ const routes: Routes = [{
     component: SessionComponent,
     children: [{
       path: 'search',
-      component: SearchComponent
-    }]
+      component: SearchComponent,
+      canActivate: [AuthService] 
+    }],
+    canActivate: [AuthService] 
   },
 ];
 

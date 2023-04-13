@@ -14,7 +14,6 @@ mat-toolbar {
     position: relative;
     width: 100%;
     z-index: 300;
-    border: 1px solid #19a6b4;
     height: 9.5vh;
 }
 
@@ -23,13 +22,21 @@ mat-toolbar {
     margin-left: 5.2rem;
 }
 
+@import '../../styles.scss';
+
 .title {
     margin: 0.5rem;
-    font-size: 1.7rem;
-    font-family: Roboto-light;
+    font-size: 3rem;
+    color:#fba81a;
+    font-weight:700;
+    font-family: Plantin Head MT Std Bold Cn;
 }
 
 .main-content {
     display: flex;
     flex-wrap:wrap;
+}
+
+mat-toolbar{
+    background-color: #2f0d38;
 }

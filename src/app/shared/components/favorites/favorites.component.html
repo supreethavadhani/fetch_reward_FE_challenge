@@ -1,0 +1,16 @@
+<mat-card>
+  <h1 style="font-family: Roboto-bold;">Favorites <span *ngIf="pickedLength>0">({{pickedLength}})</span></h1>
+  <div class="col-md-12">
+    <div *ngFor="let dog of pickedDogs">
+      <app-fav-cards [dog]="dog"></app-fav-cards>
+      <hr>
+    </div>
+    <div style="text-align:center">
+      <button mat-raised-button color="primary" *ngIf="pickedLength>0" (click)="match()">Find My Match
+        </button>
+    </div>
+  </div>
+  <div *ngIf="!(pickedLength>0)">
+    Click on your favorite dogs to add them to your list
+  </div>
+</mat-card>

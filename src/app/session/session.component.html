@@ -1,16 +1,19 @@
-<mat-toolbar>
-  <img class="logo" src="https://nttsars.com/wp-content/uploads/2021/03/dogheart-500x500-1.png">
-  <span class="title">Paw Patrol</span>
+<mat-toolbar style="position: sticky">
+  <div>  <span class="title">Fetch Challenge</span> </div>
+<div style="text-align: right;" (click)="logout()">
+  <span style="float:right;color:white;right:2rem;position:absolute;bottom:1.5rem;cursor: pointer;"> Logout</span>
+  </div>
 </mat-toolbar>
 
 <div class="row col-md-12">
-  <div class="col-md-1">
 
-  </div>
   <div class="col-md-3">
     <app-filter></app-filter>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-6">
     <router-outlet></router-outlet>
-    </div>
+  </div>
+  <div class="col-md-3">
+    <app-favorites></app-favorites>
+  </div>
 </div>

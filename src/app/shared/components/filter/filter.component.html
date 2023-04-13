@@ -1,30 +1,57 @@
-<div class="filter-card" style="background-color: white;">
-<h2 style="text-align: center;">Filters</h2>
+<!-- Filter card for selecting breed, age and sort parameters -->
+<div class="filter-card">
 
-<form [formGroup]="filterControls" >
+  <!-- Form to hold the filter controls -->
+  <form [formGroup]="filterControls">
 
-  <mat-form-field appearance="outline" class="col-md-11">
-    <mat-label> Search and Select Breed</mat-label>
-    <input formControlName="searchControl" matInput (input)="getSelectedBreeds()">
-  </mat-form-field>
+    <!-- Section for selecting breed -->
+    <h2 class="filter-card__heading">Breed</h2>
+    <mat-form-field appearance="outline" class="filter-card__form-field">
+      <mat-label> Search and Select Breed</mat-label>
+      <input formControlName="searchControl" matInput (input)="inputChar($event)">
+    </mat-form-field>
 
-  <div class="filters">
-    <div *ngFor="let breed of filteredBreeds">
-      <mat-checkbox style="margin:-0.5rem" (change)="checkboxChanged($event,breed)">{{breed}}</mat-checkbox>
+    <!-- List of breeds as checkboxes -->
+    <div class="filters">
+      <div *ngFor="let breed of filteredBreeds">
+        <mat-checkbox class="filter-checkbox" (change)="checkboxChanged($event,breed)">{{breed}}</mat-checkbox>
+      </div>
     </div>
-  </div>
 
-  <mat-form-field appearance="outline" class="col-md-11">
-    <mat-label> Minimum Age</mat-label>
-    <input formControlName="minAgeControl" matInput (input)="getSelectedBreeds()">
-  </mat-form-field>
+    <!-- Horizontal line to separate breed section from age section -->
+    <hr class="filter-card__hr">
 
-  <mat-form-field appearance="outline" class="col-md-11">
-    <mat-label> Max Age</mat-label>
-    <input formControlName="maxAgeControl" matInput (input)="getSelectedBreeds()">
-  </mat-form-field>
+    <!-- Section for selecting age range -->
+    <h2 class="filter-card__heading">Age</h2>
 
-  <mat-error *ngIf="ageError"> There is an age error</mat-error>
+    <!-- Form field for minimum age -->
+    <mat-form-field appearance="outline" class="filter-card__form-field">
+      <mat-label> Minimum Age</mat-label>
+      <input formControlName="minAgeControl" matInput (input)="getSelectedBreeds()">
+    </mat-form-field>
 
-</form>
+    <!-- Form field for maximum age -->
+    <mat-form-field appearance="outline" class="filter-card__form-field">
+      <mat-label> Max Age</mat-label>
+      <input formControlName="maxAgeControl" matInput (input)="getSelectedBreeds()">
+    </mat-form-field>
+
+    <!-- Error message in case of age error -->
+    <mat-error *ngIf="ageError"> There is an age error</mat-error>
+
+    <!-- Horizontal line to separate age section from sort section -->
+    <hr class="filter-card__hr">
+
+    <!-- Section for selecting sort option -->
+    <h2 class="filter-card__heading">Sort</h2>
+    <mat-form-field appearance="outline" class="filter-card__form-field">
+      <mat-label>Sort</mat-label>
+      <mat-select (selectionChange)="setSortValue()" formControlName="sortControl">
+        <mat-option *ngFor="let sort of sortString" [value]="sort.value">
+          {{sort.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </form>
 </div>

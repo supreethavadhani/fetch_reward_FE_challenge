@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TableComponentComponent } from './table-component.component';
+import { FavCardsComponent } from './fav-cards.component';
 
-describe('TableComponentComponent', () => {
-  let component: TableComponentComponent;
-  let fixture: ComponentFixture<TableComponentComponent>;
+describe('FavCardsComponent', () => {
+  let component: FavCardsComponent;
+  let fixture: ComponentFixture<FavCardsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TableComponentComponent ]
+      declarations: [ FavCardsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TableComponentComponent);
+    fixture = TestBed.createComponent(FavCardsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
