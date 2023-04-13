@@ -1,38 +1,34 @@
-name: Angular CI/CD
+name: CI
 
 on:
   push:
-    branches:
-      - master
+    branches: [ main ]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - name: Use Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14.x'
 
-      - name: Install Dependencies
-        run: |
-          npm install -g @angular/cli
-          npm install
+    - name: Install Dependencies
+      run: |
+        npm install -g @angular/cli
+        npm install
 
-      - name: Run Unit Tests
-        run: ng test
+    - name: Build and Test
+      run: |
+        ng test --watch=false --browsers=ChromeHeadless
+        ng build --prod
 
-      - name: Build Angular App
-        run: ng build --prod
-
-      - name: Deploy to Firebase Hosting
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only hosting
-
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+    - name: Deploy to Firebase
+      uses: w9jds/firebase-action@master
+      with:
+        args: deploy --only hosting
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
