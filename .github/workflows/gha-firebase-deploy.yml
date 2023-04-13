@@ -24,7 +24,7 @@ jobs:
     - name: Build and Test
       run: |
         ng test --watch=false --browsers=ChromeHeadless
-        ng build --prod
+        ng build
 
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
