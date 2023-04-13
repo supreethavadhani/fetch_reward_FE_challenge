@@ -56,6 +56,13 @@ fdescribe('LoginComponent', () => {
     expect(httpService.post).toHaveBeenCalledWith('/auth/login', { name: 'test', email: 'test@test.com' });
   });
 
+  it('should not submit the form if it is not valid', () => {
+    spyOn(httpService, 'post').and.callThrough();
+    component.loginForm.setValue({ name: 'test', email: 'testtest.com' });
+    component.onSubmit();
+    expect(httpService.post).not.toHaveBeenCalled();
+  });
+
   it('should log the error message when the server returns an error', () => {
     spyOn(httpService, 'post').and.returnValue(new Observable<any>(observer => {
       observer.error('Error');
